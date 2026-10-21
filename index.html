@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5">
 <title>趁早 PARTY 2026 · 心想事成</title>
 <meta name="theme-color" content="#6E1220">
 <link rel="icon" type="image/png" href="icon-192.png">
@@ -97,7 +97,7 @@ body{
 .emgrid{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
 .emgrid button{width:44px;height:44px;font-size:24px;border-radius:12px;border:1.5px solid transparent;background:#F1E7D2;cursor:pointer}
 .emgrid button.on{border-color:#FF5A45;background:#ffe3de}
-textarea,.minput{width:100%;border:1.5px solid #D9C9A5;border-radius:12px;padding:11px 13px;font-size:14.5px;font-family:inherit;background:#fff;color:#20242A;outline:none}
+textarea,.minput{width:100%;border:1.5px solid #D9C9A5;border-radius:12px;padding:11px 13px;font-size:16px;font-family:inherit;background:#fff;color:#20242A;outline:none;-webkit-user-select:text;user-select:text}
 textarea{min-height:74px;resize:vertical;line-height:1.6}
 textarea:focus,.minput:focus{border-color:#FF5A45}
 .mrow{display:flex;gap:10px;margin-top:14px}
@@ -105,7 +105,7 @@ textarea:focus,.minput:focus{border-color:#FF5A45}
 .quote-line{padding:12px 14px;border-left:3px solid #EFC878;background:rgba(255,255,255,.05);border-radius:0 12px 12px 0;font-size:13.5px;line-height:1.7;color:rgba(251,245,232,.9);margin-bottom:10px}
 .quote-line b{color:#EFC878}
 .quote-line i{color:#EFC878;font-family:Georgia,serif}
-.dark-ta{width:100%;min-height:90px;background:rgba(255,255,255,.07);border:1.5px solid rgba(239,200,120,.35);color:#FBF5E8;border-radius:14px;padding:13px;font-size:15px;font-family:inherit;line-height:1.7;outline:none;resize:vertical}
+.dark-ta{font-size:16px!important;width:100%;min-height:90px;background:rgba(255,255,255,.07);border:1.5px solid rgba(239,200,120,.35);color:#FBF5E8;border-radius:14px;padding:13px;font-size:15px;font-family:inherit;line-height:1.7;outline:none;resize:vertical}
 .dark-ta:focus{border-color:#EFC878}
 .dark-ta::placeholder{color:rgba(251,245,232,.4)}
 .passport{background:linear-gradient(135deg,#EFC878,#D4A952);border-radius:20px;padding:20px 18px;color:#3A0910;margin-bottom:16px;position:relative;overflow:hidden}
@@ -277,7 +277,7 @@ input.signin::placeholder{color:rgba(251,245,232,.35)}
     <div style="font-size:12.5px;font-weight:800;color:#8b8375">挑一个图标</div>
     <div class="emgrid" id="mcEms"></div>
     <div style="font-size:12.5px;font-weight:800;color:#8b8375">写愿望（现在时，像已经发生）</div>
-    <textarea id="mcWish" style="margin-top:8px" placeholder="例：我每个月读完两本书，朋友圈晒书不心虚"></textarea>
+    <textarea id="mcWish" style="margin-top:8px;font-size:16px" autocapitalize="sentences" enterkeyhint="done" placeholder="例：我每个月读完两本书，朋友圈晒书不心虚"></textarea>
     <div class="mrow">
       <button class="btn ghost" id="mcInspire">给我灵感</button>
       <button class="btn ghost" id="mcClear">清空</button>
@@ -455,18 +455,19 @@ function renderBoard(){
   $('board').innerHTML = cells.join('');
   document.querySelectorAll('#board .cell').forEach(el=>el.addEventListener('click',()=>openCell(el.dataset.c)));
 }
+const EMPOOL=['💪','🚀','💰','❤️','✈️','📚','🏡','🌙','🎨','🤝','🏖️','🏔️','🎓','🏃','☕','🌿','🎹','🐶','👶','💼','🎯','🖼️','🎸','🧘','🚴','🏆','🌅','🍜','💍','🌱'];
 function openCell(c){
   cellEdit=c; const cd=catDef(c), d=st.board.cells[c];
   $('mcTitle').textContent='编辑 · '+c;
   $('mcCat').textContent= d? d.emoji+' '+d.wish : '还没写，写第一条';
-  const ems=cd[1];
-  $('mcEms').innerHTML = ems.map(e=>'<button data-e="'+e+'" class="'+(d&&d.emoji===e?'on':'')+'">'+e+'</button>').join('');
+  const cur = d? d.emoji : cd[1];
+  $('mcEms').innerHTML = EMPOOL.map(e=>'<button data-e="'+e+'" class="'+(e===cur?'on':'')+'">'+e+'</button>').join('');
   $('mcWish').value = d? d.wish : '';
-  $('mcWish').dataset.emoji = d? d.emoji : ems[0];
-  document.querySelectorAll('#mcEms button').forEach(b=>b.addEventListener('click',()=>{
+  $('mcWish').dataset.emoji = cur;
+  document.querySelectorAll('#mcEms button').forEach(b=>{['touchstart','mousedown'].forEach(ev=>b.addEventListener(ev,e=>e.preventDefault()));b.addEventListener('click',()=>{
     $('mcWish').dataset.emoji=b.dataset.e;
     document.querySelectorAll('#mcEms button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
-  }));
+  });});
   $('mdCell').classList.add('open');
 }
 $('mcSave').addEventListener('click',()=>{
@@ -657,6 +658,9 @@ $('btnMem').addEventListener('click',()=>{
 });
 renderTl();renderSteps();renderCats();renderBoard();renderQ();renderId();
 if(st.name){$('inName').value=st.name;}
+document.addEventListener('focusin',e=>{
+  if(e.target.matches('textarea,input')){setTimeout(()=>e.target.scrollIntoView({block:'center',behavior:'smooth'}),350);}
+});
 </script>
 </body>
 </html>
