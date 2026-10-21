@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>趁早 PARTY 2026 · 心想事成</title>
+<meta name="theme-color" content="#6E1220">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon-180.png">
+<link rel="manifest" href="manifest.json">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;
+  color:#FBF5E8;background:#2B060C;min-height:100vh;
+  background:linear-gradient(175deg,#6E1220 0%,#4A0C16 34%,#2B060C 100%) fixed;
+  padding-bottom:76px;overflow-x:hidden;
+}
+.gold{color:#EFC878}
+.wrap{max-width:640px;margin:0 auto;padding:0 16px}
+.hero{position:relative;padding:34px 20px 22px;background:linear-gradient(160deg,#8E1B2C 0%,#5E0F1B 60%,#3A0910 100%);border-bottom:1px solid rgba(239,200,120,.25);overflow:hidden}
+.hero:before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 85% 0%,rgba(239,200,120,.14),transparent 42%)}
+.hero .inner{position:relative;max-width:640px;margin:0 auto}
+.badge-tag{display:inline-flex;align-items:center;gap:8px;background:#FF5A45;color:#fff;font-weight:900;font-size:14px;padding:8px 14px;border-radius:10px;letter-spacing:.06em;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.badge-tag .yr{font-family:Georgia,serif;font-style:italic;font-size:12px;opacity:.9}
+.hero h1{font-size:44px;font-weight:900;letter-spacing:.14em;margin:14px 0 2px;color:#EFC878;text-shadow:0 4px 24px rgba(0,0,0,.4)}
+.hero .sub{color:#F3D9A0;font-size:14px;letter-spacing:.2em;margin-bottom:14px}
+.hero .quote{font-size:15px;color:rgba(251,245,232,.92);line-height:1.8;letter-spacing:.05em}
+.hero .quote b{color:#EFC878}
+.hero .ribbon{position:absolute;right:-40px;top:-20px;width:200px;height:200px;border:2px solid rgba(239,200,120,.35);border-radius:50%;pointer-events:none}
+.hero .ribbon:before{content:'';position:absolute;inset:26px;border:1px solid rgba(239,200,120,.25);border-radius:50%}
+.idbar{max-width:640px;margin:14px auto 0;padding:0 16px}
+.idbar .card{display:flex;align-items:center;gap:12px;background:rgba(20,3,7,.55);border:1px solid rgba(239,200,120,.3);border-radius:14px;padding:12px 14px;backdrop-filter:blur(6px)}
+.idbar .avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#FF5A45,#C2183A);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;color:#fff;flex:none}
+.idbar .info{flex:1;min-width:0}
+.idbar .nm{font-weight:800;font-size:15px}
+.idbar .meta{font-size:11.5px;color:#D9B96E;letter-spacing:.08em;margin-top:2px}
+.idbar .prog{width:92px;text-align:right}
+.idbar .pnum{font-family:Georgia,serif;font-style:italic;font-size:20px;color:#EFC878}
+.idbar .plabel{font-size:10px;letter-spacing:.2em;color:#C79A54}
+.idbar .pbar{height:4px;background:rgba(239,200,120,.2);border-radius:4px;margin-top:5px;overflow:hidden}
+.idbar .pbar i{display:block;height:100%;background:linear-gradient(90deg,#FF5A45,#EFC878);border-radius:4px;transition:width .4s}
+.tabbar{position:fixed;bottom:0;left:0;right:0;z-index:50;background:rgba(18,2,5,.92);backdrop-filter:blur(14px);border-top:1px solid rgba(239,200,120,.18);display:flex;padding-bottom:env(safe-area-inset-bottom)}
+.tabbar button{flex:1;background:none;border:0;color:#A8875A;font-size:11px;padding:10px 0 8px;letter-spacing:.05em;position:relative}
+.tabbar button svg{display:block;margin:0 auto 3px;width:22px;height:22px;fill:currentColor}
+.tabbar button.on{color:#EFC878}
+.tabbar button .dot{position:absolute;top:6px;right:calc(50% - 22px);width:8px;height:8px;border-radius:50%;background:#FF5A45;display:none}
+.tabbar button .dot.show{display:block}
+.page{display:none;animation:fade .3s}
+.page.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.sec-title{display:flex;align-items:baseline;gap:10px;margin:26px 2px 12px}
+.sec-title .t{font-size:21px;font-weight:900;letter-spacing:.06em}
+.sec-title .e{font-family:Georgia,serif;font-style:italic;font-size:12px;color:#C79A54;letter-spacing:.18em}
+.sec-title .fill{flex:1;height:1px;background:linear-gradient(90deg,rgba(239,200,120,.4),transparent)}
+.tl{position:relative;padding-left:26px}
+.tl:before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,#EFC878,rgba(239,200,120,.15))}
+.tl-item{position:relative;margin-bottom:14px;background:rgba(255,255,255,.055);border:1px solid rgba(239,200,120,.16);border-radius:16px;padding:14px 14px 14px 16px}
+.tl-item:before{content:'';position:absolute;left:-25px;top:20px;width:12px;height:12px;border-radius:50%;background:#2B060C;border:3px solid #EFC878}
+.tl-item.done:before{background:#EFC878;box-shadow:0 0 10px rgba(239,200,120,.8)}
+.tl-item .time{font-family:Georgia,serif;font-style:italic;font-size:13px;color:#EFC878;letter-spacing:.1em}
+.tl-item .tt{font-size:16.5px;font-weight:800;margin:3px 0 2px}
+.tl-item .ds{font-size:12.5px;color:rgba(251,245,232,.72);line-height:1.6}
+.tl-item .go{margin-top:10px;display:inline-flex;align-items:center;gap:5px;background:#EFC878;color:#3A0910;font-weight:800;font-size:12.5px;border:0;border-radius:999px;padding:7px 16px;letter-spacing:.05em;cursor:pointer}
+.tl-item .stamp{position:absolute;right:12px;top:12px;font-size:11px;color:#EFC878;border:1.5px solid #EFC878;border-radius:8px;padding:3px 8px;transform:rotate(8deg);letter-spacing:.15em}
+.card{background:#FBF5E8;color:#20242A;border-radius:18px;padding:18px 16px;margin-bottom:14px;box-shadow:0 10px 30px rgba(0,0,0,.28)}
+.card h3{font-size:17px;font-weight:900;margin-bottom:4px}
+.card .ce{font-family:Georgia,serif;font-style:italic;font-size:11.5px;color:#B98A3C;letter-spacing:.16em;margin-bottom:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;background:#20242A;color:#FBF5E8;font-weight:800;font-size:14px;border:0;border-radius:999px;padding:11px 22px;letter-spacing:.04em;cursor:pointer}
+.btn.gold{background:linear-gradient(135deg,#EFC878,#D4A952);color:#3A0910}
+.btn.ghost{background:transparent;border:1.5px solid #20242A;color:#20242A}
+.btn.sm{font-size:12.5px;padding:8px 15px}
+.step{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.055);border:1px solid rgba(239,200,120,.16);border-radius:16px;padding:13px 14px;margin-bottom:10px}
+.step .no{font-family:Georgia,serif;font-style:italic;font-size:20px;color:#EFC878;min-width:30px;height:30px;border:1.5px solid #EFC878;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
+.step .tx{flex:1}
+.step .nm{font-weight:800;font-size:14.5px}
+.step .nm i{font-family:Georgia,serif;font-style:italic;font-size:11px;color:#C79A54;margin-left:6px;letter-spacing:.08em}
+.step .ds{font-size:12.5px;color:rgba(251,245,232,.75);line-height:1.65;margin-top:3px}
+.step .chk{flex:none;align-self:center}
+.chk button{width:30px;height:30px;border-radius:50%;border:1.5px solid #EFC878;background:none;color:#EFC878;font-size:15px;cursor:pointer}
+.chk button.on{background:#EFC878;color:#3A0910}
+.brow{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 4px}
+.cat{font-size:12.5px;font-weight:700;border:1.5px solid rgba(239,200,120,.4);color:#EFC878;background:none;border-radius:999px;padding:7px 13px;cursor:pointer}
+.cat.on{background:#EFC878;color:#3A0910}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;background:#F1E7D2;border-radius:18px;padding:12px;border:1px solid #D9C9A5}
+.cell{aspect-ratio:3/4;border-radius:12px;padding:10px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;position:relative;color:#fff;min-height:0;box-shadow:inset 0 -18px 30px rgba(0,0,0,.12)}
+.cell .em{font-size:30px;line-height:1.1}
+.cell .cn{font-size:11px;font-weight:800;margin-top:4px;opacity:.9;letter-spacing:.1em}
+.cell .ws{font-size:10.5px;line-height:1.45;margin-top:4px;opacity:.95;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.cell.empty{background:rgba(32,36,42,.06);border:1.5px dashed rgba(32,36,42,.25);color:#8b8375;box-shadow:none}
+.cell.empty .em{opacity:.4;font-size:24px}
+.modal{position:fixed;inset:0;z-index:80;background:rgba(12,1,3,.72);display:none;align-items:flex-end;justify-content:center}
+.modal.open{display:flex}
+.mbox{background:#FBF5E8;color:#20242A;width:100%;max-width:640px;border-radius:22px 22px 0 0;padding:20px 18px calc(20px + env(safe-area-inset-bottom));max-height:86vh;overflow-y:auto;animation:up .28s}
+@keyframes up{from{transform:translateY(40px);opacity:.4}to{transform:none;opacity:1}}
+.mbox h3{font-size:18px;font-weight:900;margin-bottom:12px}
+.emgrid{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
+.emgrid button{width:44px;height:44px;font-size:24px;border-radius:12px;border:1.5px solid transparent;background:#F1E7D2;cursor:pointer}
+.emgrid button.on{border-color:#FF5A45;background:#ffe3de}
+textarea,.minput{width:100%;border:1.5px solid #D9C9A5;border-radius:12px;padding:11px 13px;font-size:14.5px;font-family:inherit;background:#fff;color:#20242A;outline:none}
+textarea{min-height:74px;resize:vertical;line-height:1.6}
+textarea:focus,.minput:focus{border-color:#FF5A45}
+.mrow{display:flex;gap:10px;margin-top:14px}
+.mrow .btn{flex:1}
+.quote-line{padding:12px 14px;border-left:3px solid #EFC878;background:rgba(255,255,255,.05);border-radius:0 12px 12px 0;font-size:13.5px;line-height:1.7;color:rgba(251,245,232,.9);margin-bottom:10px}
+.quote-line b{color:#EFC878}
+.quote-line i{color:#EFC878;font-family:Georgia,serif}
+.dark-ta{width:100%;min-height:90px;background:rgba(255,255,255,.07);border:1.5px solid rgba(239,200,120,.35);color:#FBF5E8;border-radius:14px;padding:13px;font-size:15px;font-family:inherit;line-height:1.7;outline:none;resize:vertical}
+.dark-ta:focus{border-color:#EFC878}
+.dark-ta::placeholder{color:rgba(251,245,232,.4)}
+.passport{background:linear-gradient(135deg,#EFC878,#D4A952);border-radius:20px;padding:20px 18px;color:#3A0910;margin-bottom:16px;position:relative;overflow:hidden}
+.passport:before{content:'PARTY 2026';position:absolute;right:-14px;top:6px;font-family:Georgia,serif;font-style:italic;font-size:44px;opacity:.12;font-weight:700}
+.passport .p-tag{font-size:11px;letter-spacing:.28em;font-weight:800;opacity:.75}
+.passport .p-name{font-size:26px;font-weight:900;margin:6px 0 2px;letter-spacing:.1em}
+.passport .p-seat{font-size:13px;font-weight:700;opacity:.8}
+.stamps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:10px 0}
+.stamp2{aspect-ratio:1;border-radius:14px;border:1.5px dashed rgba(239,200,120,.45);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:10.5px;color:rgba(251,245,232,.55);text-align:center;padding:4px}
+.stamp2 .ic{font-size:20px;opacity:.4}
+.stamp2.on{border:1.5px solid #EFC878;background:rgba(239,200,120,.1);color:#EFC878;animation:pop .4s}
+.stamp2.on .ic{opacity:1}
+@keyframes pop{0%{transform:scale(.6)}60%{transform:scale(1.12)}100%{transform:scale(1)}}
+.bigbtn{width:180px;height:180px;border-radius:50%;border:3px solid #EFC878;background:radial-gradient(circle at 35% 30%,#FF7A5C,#C2183A);color:#fff;font-size:19px;font-weight:900;letter-spacing:.12em;margin:16px auto;display:block;cursor:pointer;box-shadow:0 0 0 10px rgba(239,200,120,.08),0 0 60px rgba(255,90,69,.35);animation:breathe 2.4s infinite}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+.count-ov{position:fixed;inset:0;z-index:99;background:radial-gradient(circle at 50% 40%,#5E0F1B,#1A0206);display:none;align-items:center;justify-content:center;flex-direction:column}
+.count-ov.open{display:flex}
+.count-ov .n{font-family:Georgia,serif;font-style:italic;font-size:150px;color:#EFC878;text-shadow:0 10px 60px rgba(239,200,120,.4)}
+.count-ov .msg{font-size:16px;letter-spacing:.3em;color:#F3D9A0;margin-top:8px}
+.confetti{position:absolute;top:-14px;width:9px;height:15px;opacity:.9;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(105vh) rotate(720deg);opacity:.7}}
+.wall{display:flex;flex-direction:column;gap:9px}
+.wall .w-item{background:rgba(255,255,255,.06);border:1px solid rgba(239,200,120,.2);border-radius:12px;padding:10px 13px;font-size:13px;line-height:1.6}
+.wall .w-item b{color:#EFC878}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:#20242A;color:#EFC878;border:1px solid rgba(239,200,120,.5);padding:11px 20px;border-radius:999px;font-size:13.5px;font-weight:700;z-index:120;opacity:0;pointer-events:none;transition:.3s;letter-spacing:.03em;max-width:86vw;text-align:center}
+.toast.show{opacity:1;bottom:104px}
+.hintline{font-size:11.5px;color:rgba(251,245,232,.5);line-height:1.7;margin:6px 2px 12px}
+input.signin{width:100%;background:rgba(255,255,255,.07);border:1.5px solid rgba(239,200,120,.4);color:#FBF5E8;border-radius:14px;padding:14px;font-size:17px;text-align:center;font-family:inherit;letter-spacing:.1em;outline:none}
+input.signin::placeholder{color:rgba(251,245,232,.35)}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="ribbon"></div>
+  <div class="inner">
+    <div class="badge-tag">趁早 PARTY <span class="yr">2026</span> ✦</div>
+    <h1>心想事成</h1>
+    <div class="sub">2026 · 12 · 12 上 海 · 保利大剧院</div>
+    <div class="quote">「一个人，如何主动创造<b>喜欢的人生</b>。」<br>今天你是参会人——签到、听课、做愿景板、写下、发问、举麦、倒数。走完全程，把信念与方法带回家。</div>
+  </div>
+</div>
+
+<div class="idbar">
+  <div class="card" id="idbar" onclick="goTab('pass')">
+    <div class="avatar" id="idAva">?</div>
+    <div class="info"><div class="nm" id="idName">未签到 · 点击签到入场</div><div class="meta" id="idSeat">13:00-14:00 签到处 · 领取伴手礼</div></div>
+    <div class="prog"><div class="pnum" id="pNum">0<i style="font-size:12px;opacity:.7">/7</i></div><div class="plabel">STAMPS</div><div class="pbar"><i id="pBar" style="width:0%"></i></div></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="page on" id="pg-agenda">
+  <div class="sec-title"><span class="t">今日日程</span><span class="e">AGENDA</span><span class="fill"></span></div>
+  <div class="hintline">和现场同款时间轴。自由走动，完成一个环节盖一枚章——集齐 7 枚，散场领取参会纪念卡。</div>
+  <div class="tl" id="tl"></div>
+</div>
+
+<div class="page" id="pg-course">
+  <div class="sec-title"><span class="t">七步科学显化</span><span class="e">ROXIE NAFOUSI</span><span class="fill"></span></div>
+  <div class="hintline">罗克西·纳福西【英】《Manifest》作者 · 七步科学显化体系讲授。逐条点头确认，走完这一课，愿景板就有了地基。</div>
+  <div id="steps"></div>
+  <div style="text-align:center;margin:14px 0 30px"><button class="btn gold" id="btnCourse">全部确认 · 领取「显化」章</button></div>
+</div>
+
+<div class="page" id="pg-vision">
+  <div class="sec-title"><span class="t">愿景板工作坊</span><span class="e">VISION BOARD</span><span class="fill"></span></div>
+  <div class="hintline">Roxie 现场讲解环节。四步走：选领域 → 写愿望 → 排进画框 → 存成手机壁纸。点空白格开始。</div>
+  <div class="card" style="background:rgba(255,255,255,.055);color:#FBF5E8">
+    <h3 class="gold" style="font-size:15px">① 选择人生领域（可多选）</h3>
+    <div class="brow" id="cats"></div>
+    <div style="margin-top:10px;display:flex;gap:8px"><button class="btn sm ghost" style="border-color:rgba(239,200,120,.5);color:#EFC878" id="b3">3 格 · 极简</button><button class="btn sm ghost" style="border-color:rgba(239,200,120,.5);color:#EFC878" id="b6">6 格 · 标准</button><button class="btn sm ghost" style="border-color:rgba(239,200,120,.5);color:#EFC878" id="b9">9 格 · 全景</button></div>
+  </div>
+  <div class="board" id="board"></div>
+  <div style="text-align:center;margin:16px 0 30px">
+    <button class="btn gold" id="btnExport" style="min-width:220px">导出愿景板 · 存成手机壁纸</button>
+    <div class="hintline" style="margin-top:10px">导出后自动盖「愿景板」章 · 图片 1080×1440，可直接设为锁屏</div>
+  </div>
+</div>
+
+<div class="page" id="pg-live">
+  <div class="sec-title"><span class="t">潇洒姐 · 写下</span><span class="e">WRITE IT DOWN</span><span class="fill"></span></div>
+  <div class="quote-line">「愿望不是许给运气的，是<b><i>写下来</i></b>、拆开做、按期交的。」</div>
+  <div class="quote-line">「什么时候出发都不晚，<i>前提是现在就出发</i>。」</div>
+  <div class="quote-line">「你要过的是<b><i>有日程表的人生</i></b>，不是『再说吧』的人生。」</div>
+  <div class="card" style="background:rgba(255,255,255,.055);color:#FBF5E8">
+    <h3 class="gold" style="font-size:15px">现场带练：写给你想成为的那个人</h3>
+    <div class="hintline">潇洒姐会请全场一起写下。写给 2027 年 12 月 12 日的自己——那天你希望站在哪里？</div>
+    <textarea class="dark-ta" id="taWrite" placeholder="亲爱的 2027 的我：此刻你在……"></textarea>
+    <div style="margin-top:10px;text-align:right"><button class="btn gold sm" id="btnWrite">写下 · 收好</button></div>
+  </div>
+
+  <div class="sec-title"><span class="t">人生应用题</span><span class="e">LI YINHE QA</span><span class="fill"></span></div>
+  <div class="hintline">李银河老师环节：人生没有标准答案，先写下你的。抽一题试试。</div>
+  <div class="card" style="background:rgba(255,255,255,.055);color:#FBF5E8">
+    <div class="gold" style="font-family:Georgia,serif;font-style:italic;font-size:12px;letter-spacing:.2em" id="qNo">QUESTION 01</div>
+    <div style="font-size:16.5px;font-weight:800;line-height:1.6;margin:8px 0 12px" id="qText"></div>
+    <textarea class="dark-ta" id="taQ" style="min-height:66px" placeholder="你的答案是……"></textarea>
+    <div style="margin-top:10px;display:flex;gap:8px;justify-content:flex-end"><button class="btn sm ghost" style="border-color:rgba(239,200,120,.5);color:#EFC878" id="btnNextQ">换一题</button><button class="btn gold sm" id="btnSaveQ">作答保存</button></div>
+  </div>
+
+  <div class="sec-title"><span class="t">嘉宾对谈 · 问题征集</span><span class="e">ASK</span><span class="fill"></span></div>
+  <div class="hintline">对谈环节讨论提前征集的来宾问题。把你最想问的递给主持人。</div>
+  <div class="card" style="background:rgba(255,255,255,.055);color:#FBF5E8">
+    <textarea class="dark-ta" id="taAsk" style="min-height:60px" placeholder="我想问：比如如何在忙碌的日常里坚持长期主义？"></textarea>
+    <div style="margin-top:10px;text-align:right"><button class="btn gold sm" id="btnAsk">投递问题</button></div>
+    <div id="askList" class="wall" style="margin-top:12px"></div>
+  </div>
+
+  <div class="sec-title"><span class="t">趁早星人开放麦</span><span class="e">OPEN MIC</span><span class="fill"></span></div>
+  <div class="hintline">麦克风和追光会给到每一位分享者。说一句今天最触动你的话，让它留在墙上。</div>
+  <div class="card" style="background:rgba(255,255,255,.055);color:#FBF5E8">
+    <textarea class="dark-ta" id="taMic" style="min-height:56px" placeholder="追光给你——想说什么？"></textarea>
+    <div style="margin-top:10px;text-align:right"><button class="btn gold sm" id="btnMic">上台 · 上墙</button></div>
+    <div id="micWall" class="wall" style="margin-top:12px"></div>
+  </div>
+  <div style="height:8px"></div>
+</div>
+
+<div class="page" id="pg-pass">
+  <div class="sec-title"><span class="t">参会护照</span><span class="e">MY PASS</span><span class="fill"></span></div>
+  <div id="signArea" style="display:none">
+    <div class="card" style="text-align:center;padding:30px 20px">
+      <h3>签到处 · Check-in</h3>
+      <div class="ce">13:00 - 14:00 · 保利大剧院前厅</div>
+      <div class="hintline" style="color:#8b8375">输入你的名字，生成专属参会胸牌，领伴手礼入场。</div>
+      <input class="signin" id="inName" placeholder="写下你的名字" maxlength="12">
+      <div style="margin-top:14px"><button class="btn gold" id="btnSign" style="min-width:180px">签到 · 领取胸牌</button></div>
+    </div>
+  </div>
+  <div id="passArea" style="display:none">
+    <div class="passport">
+      <div class="p-tag">CHENZAO PARTY 2026 · 心想事成</div>
+      <div class="p-name" id="ppName">—</div>
+      <div class="p-seat" id="ppSeat">—</div>
+      <div class="p-seat" style="margin-top:6px;font-family:Georgia,serif;font-style:italic">SHAPE YOUR LIFE ✦ 2026.12.12 SHANGHAI</div>
+    </div>
+    <div class="stamps" id="stampWall"></div>
+    <div class="sec-title"><span class="t">新阶段倒计时</span><span class="e">NEW CHAPTER</span><span class="fill"></span></div>
+    <div class="hintline" style="margin-top:0">一年一度的仪式：把过去一年留在身后，倒计时结束后，新阶段正式开始。</div>
+    <button class="bigbtn" id="btnCount">启动<br>新阶段</button>
+    <div id="stageDone" style="display:none;text-align:center;margin-bottom:10px"><div class="gold" style="font-size:17px;font-weight:900;letter-spacing:.15em">✦ 新阶段已启动 ✦</div><div class="hintline" id="stageDate" style="margin-top:4px"></div></div>
+    <div class="sec-title"><span class="t">参会纪念卡</span><span class="e">MEMORY</span><span class="fill"></span></div>
+    <div style="text-align:center;margin-bottom:10px">
+      <button class="btn gold" id="btnMem" style="min-width:230px">生成我的参会纪念卡</button>
+      <div class="hintline" style="margin-top:10px">金色票卡 · 含你的名字、盖章数与今日金句，可保存分享</div>
+    </div>
+    <div class="sec-title"><span class="t">伴手礼 · 今日金句</span><span class="e">GIFTS</span><span class="fill"></span></div>
+    <div id="gifts"></div>
+    <div style="text-align:center;padding:18px 0 30px;color:rgba(251,245,232,.55);font-size:12.5px;letter-spacing:.1em">明年 12 · 12 —— 期待在更高的地方遇见你 ✦</div>
+  </div>
+</div>
+
+</div>
+
+<div class="tabbar" id="tabbar">
+  <button data-t="agenda" class="on"><svg viewBox="0 0 24 24"><path d="M4 3h16a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1zm2 4v2h12V7H6zm0 5v2h8v-2H6z"/></svg>日程</button>
+  <button data-t="course"><svg viewBox="0 0 24 24"><path d="M12 2l9 5-9 5-9-5 9-5zm-9 9l9 5 9-5v2l-9 5-9-5v-2z"/></svg>显化课</button>
+  <button data-t="vision"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0110 10 10 10 0 01-10 10A10 10 0 012 12 10 10 0 0112 2zm0 3a7 7 0 00-7 7 7 7 0 007 7v-3a4 4 0 01-4-4 4 4 0 014-4V5z"/></svg>愿景板</button>
+  <button data-t="live"><svg viewBox="0 0 24 24"><path d="M12 2a4 4 0 014 4v6a4 4 0 01-8 0V6a4 4 0 014-4zm-7 9a7 7 0 0014 0h2a9 9 0 01-8 8.94V22h-2v-2.06A9 9 0 013 11h2z"/></svg>互动</button>
+  <button data-t="pass"><svg viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm5 2v2h8V7H8zm0 4v2h8v-2H8zm0 4v2h5v-2H8z"/></svg>护照</button>
+</div>
+
+<div class="modal" id="mdCell">
+  <div class="mbox">
+    <h3 id="mcTitle">编辑格子</h3>
+    <div class="ce" id="mcCat" style="margin-bottom:8px"></div>
+    <div style="font-size:12.5px;font-weight:800;color:#8b8375">挑一个图标</div>
+    <div class="emgrid" id="mcEms"></div>
+    <div style="font-size:12.5px;font-weight:800;color:#8b8375">写愿望（现在时，像已经发生）</div>
+    <textarea id="mcWish" style="margin-top:8px" placeholder="例：我每个月读完两本书，朋友圈晒书不心虚"></textarea>
+    <div class="mrow">
+      <button class="btn ghost" id="mcInspire">给我灵感</button>
+      <button class="btn ghost" id="mcClear">清空</button>
+      <button class="btn gold" id="mcSave">放进板里</button>
+    </div>
+  </div>
+</div>
+
+<div class="count-ov" id="countOv"><div class="n" id="cNum">3</div><div class="msg" id="cMsg">新阶段即将开始</div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const KEY='chenzao-party-v1';
+let st = JSON.parse(localStorage.getItem(KEY)||'{}');
+st.stamps = st.stamps||[]; st.steps = st.steps||[0,0,0,0,0,0,0];
+st.board = st.board||{cells:{}}; st.answers = st.answers||{};
+st.asks = st.asks||[]; st.mics = st.mics||[];
+function save(){ localStorage.setItem(KEY, JSON.stringify(st)); }
+
+const SEVEN=[
+ ['看清愿景','Be clear in your vision','不是「想变好」，而是精确到画面：几年后的具体一天，你在哪、和谁、做什么、赚多少。写不出来就是还没想清楚。'],
+ ['清除恐惧与怀疑','Remove fear and doubt','把「我不配/来不及/没天赋」写下来，逐条审判——它们是过去的回声，不是未来的剧本。'],
+ ['调齐行为','Align your behaviour','许愿跑马拉松，但每天躺着，宇宙也很为难。让今天的动作配得上你许的愿。'],
+ ['通过宇宙的考验','Overcome the tests','愿望附近永远埋着小测试：一次拖延、一句嘲讽、一个意外。考过了，礼物才发货。'],
+ ['培养感恩','Cultivate gratitude','每天记三件小事的感恩——感恩是显化的加速器：你先为已有的满足，才配得到更多。'],
+ ['像已实现那样行动','Act as if','用「已经是了」的姿态走路、说话、做决定。宇宙喜欢配合自信的演员。'],
+ ['把挫折变成燃料','Turn setbacks into strength','显化不是不失败，是失败后捡起证据：看，我又排除了一条走不通的路。']
+];
+const CATS=[
+ ['健康','💪',['身体轻盈有力量','每周三次晨跑','早睡 23:30','体检全绿','学会游泳','马甲线现身']],
+ ['事业','🚀',['做出被喜欢的产品','升到新职级','独立接第一个项目','带一支小团队','作品被看见','开自己的工作室']],
+ ['金钱','💰',['存下第一个十万','被动收入 cover 房租','理财不再凭感觉','给自己涨薪 30%','学会定投','应急金攒满 6 个月']],
+ ['爱','❤️',['遇见同频的人','关系里好好说话','每周一次约会日','被爱也敢爱人','一起看一次日出','和 家人和解']],
+ ['旅行','✈️',['去一次冰岛看极光','住一次海边民宿','带上爸妈旅行','集齐 10 个国家','高原看星空','逛遍国内博物馆']],
+ ['学习','📚',['读完 24 本书','考下那个证书','学会剪视频','英语敢开口','写完 10 万字','学会一门乐器']],
+ ['家','🏡',['搬进有阳光的家','养一盆不死的绿萝','厨房做出拿手菜','房间断舍离','布置一个读书角','拥有自己的书桌']],
+ ['自我','🌙',['每天冥想十分钟','戒掉深夜 emo','学会说不','拍照敢站 C 位','坚持写日记','成为发言最稳的人']],
+ ['兴趣','🎨',['学会水彩','跳完一支舞','做陶器','拍完 365 天','跑完一场半马','拼完 1000 片拼图']],
+ ['关系','🤝',['交三个新朋友','老朋友每月一聚','成为别人的贵人','组一个读书会','常联系感恩的人','认识行业前辈']]
+];
+const QA=[
+ '30 岁转行去追真正喜欢的行业，晚不晚？',
+ '该选安稳但一眼望到头的工作，还是辛苦但喜欢的工作？',
+ '身边人都在躺平，我努力是不是显得很傻？',
+ '怎么判断一个人值不值得长期交往？',
+ ['钱到底重不重要？要为热爱降薪吗？'][0],
+ '父母催婚催生，我的人生该听谁的？',
+ '努力很久没结果，怎么判断该坚持还是止损？',
+ '一个人生活也可以幸福吗？'
+].map(q=>Array.isArray(q)?q[0]:q);
+const GIFTS=[
+ ['信念卡','你的愿望值得被认真对待——先自己信，别人才会跟。'],
+ ['方法卡','把大愿望拆成有日期的小事，日历会替你记住一切。'],
+ ['行动卡','今天写下的每一个字，都是明年在向你招手。']
+];
+
+const $=id=>document.getElementById(id);
+function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._x);t._x=setTimeout(()=>t.classList.remove('show'),2400);}
+function goTab(t){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
+  $('pg-'+t).classList.add('on');
+  document.querySelectorAll('.tabbar button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));
+  window.scrollTo(0,0);
+  if(t==='pass')renderPass();
+  if(t==='vision')renderBoard();
+}
+document.querySelectorAll('.tabbar button').forEach(b=>b.addEventListener('click',()=>goTab(b.dataset.t)));
+
+const STAMPS=[
+ ['sign','签到','🎫'],['course','显化','🌟'],['vision','愿景板','🖼️'],
+ ['write','写下','✍️'],['qa','问答','💬'],['mic','开放麦','🎤'],['stage','新阶段','⏳']
+];
+function has(s){return st.stamps.includes(s);}
+function stamp(s,msg){
+  if(has(s))return;
+  st.stamps.push(s);save();renderId();
+  toast('🏅 '+msg+'（'+st.stamps.length+'/7）');
+  if(st.stamps.length===7)setTimeout(()=>toast('✦ 全部 7 枚章集齐！去「护照」生成参会纪念卡 ✦'),2600);
+}
+function renderId(){
+  const n=st.name;
+  $('idAva').textContent = n? n[0].toUpperCase() : '?';
+  $('idName').textContent = n? n+' · 参会人' : '未签到 · 点击签到入场';
+  $('idSeat').textContent = n? ('座位 '+st.seat+' · 保利大剧院') : '13:00-14:00 签到处 · 领取伴手礼';
+  $('pNum').innerHTML = st.stamps.length+'<i style="font-size:12px;opacity:.7">/7</i>';
+  $('pBar').style.width = (st.stamps.length/7*100)+'%';
+}
+function doSign(){
+  const n=$('inName').value.trim();
+  if(!n){toast('写下名字，大会才算开始');return;}
+  st.name=n;
+  st.seat=['A','B','C'][Math.floor(Math.random()*3)]+' 区 '+(1+Math.floor(Math.random()*20))+' 排 '+(1+Math.floor(Math.random()*18))+' 号';
+  save();stamp('sign','签到完成 · 伴手礼已领取');
+  renderPass();renderId();renderTl();
+  toast('欢迎你，'+n+'！');
+}
+$('btnSign').addEventListener('click',doSign);
+$('inName').addEventListener('keydown',e=>{if(e.key==='Enter')doSign();});
+
+const AGENDA=[
+ ['13:00','签到入场 · 领取伴手礼','前厅领胸牌与伴手礼，找到你的座位','sign','pass'],
+ ['14:00','开场 · 心想事成','主持人开场，全场亮灯——今年的主题揭晓','sign','agenda'],
+ ['14:20','Roxie 七步科学显化','《Manifest》作者亲授：让愿望照进现实的完整体系','course','course'],
+ ['15:10','愿景板工作坊','Roxie 带领：把愿望做成看得见的板，贴满你想要的人生','vision','vision'],
+ ['16:00','潇洒姐年度演讲 · 写下带练','王潇年度主题演讲 + 全场一起「写下」','write','live'],
+ ['16:40','李银河 · 人生应用题问答','那些没有标准答案的人生难题，现场作答','qa','live'],
+ ['17:10','嘉宾对谈','围绕来宾征集的问题，台上台下一场真聊','qa','live'],
+ ['17:40','趁早星人开放麦','追光和麦克风属于你：说一句今天最触动你的话','mic','live'],
+ ['17:50','新阶段倒计时','一年一度的仪式：倒数结束，新阶段开始','stage','pass'],
+ ['18:00','散场 · 领取纪念卡','带着 7 枚章和一整块愿景板回家','mem','pass']
+];
+function renderTl(){
+  $('tl').innerHTML = AGENDA.map((a)=>{
+    const done = (a[3]==='mem') ? st.stamps.length>=7 : has(a[3]);
+    return '<div class="tl-item'+(done?' done':'')+'">'+
+      (done?'<div class="stamp">已盖章</div>':'')+
+      '<div class="time">'+a[0]+'</div><div class="tt">'+a[1]+'</div>'+
+      '<div class="ds">'+a[2]+'</div>'+
+      (a[4]!=='agenda'?'<button class="go" data-g="'+a[4]+'">'+(done?'重温':'现在去')+' →</button>':'')+
+    '</div>';
+  }).join('');
+  document.querySelectorAll('#tl .go').forEach(b=>b.addEventListener('click',()=>goTab(b.dataset.g)));
+}
+
+function renderSteps(){
+  $('steps').innerHTML = SEVEN.map((s,i)=>
+    '<div class="step"><div class="no">'+(i+1)+'</div><div class="tx">'+
+    '<div class="nm">'+s[0]+'<i>'+s[1]+'</i></div><div class="ds">'+s[2]+'</div></div>'+
+    '<div class="chk"><button data-i="'+i+'" class="'+(st.steps[i]?'on':'')+'">✓</button></div></div>'
+  ).join('');
+  document.querySelectorAll('#steps .chk button').forEach(b=>b.addEventListener('click',()=>{
+    const i=+b.dataset.i; st.steps[i]=st.steps[i]?0:1; b.classList.toggle('on'); save();
+    if(st.steps.every(x=>x)&&!has('course'))stamp('course','七步显化 · 全部领悟');
+  }));
+}
+$('btnCourse').addEventListener('click',()=>{
+  if(!st.steps.every(x=>x)){toast('先把七步都点头确认一遍');return;}
+  stamp('course','七步显化 · 全部领悟'); goTab('vision');
+});
+
+let boardCats = st.board.cats || ['健康','事业','金钱','旅行','学习','自我'];
+let cellEdit = null;
+function allCats(){return boardCats.concat(CATS.map(c=>c[0]).filter(c=>!boardCats.includes(c)));}
+function catDef(n){return CATS.find(c=>c[0]===n)||CATS[0];}
+function catColor(n){
+  const order=['健康','事业','金钱','爱','旅行','学习','家','自我','兴趣','关系'];
+  const palette=['#C2183A','#D4632A','#C99A2E','#5F8F4E','#2C7A8C','#3D5A80','#7C5FA8','#B04A7D','#8A5A3C','#4E6E58'];
+  const i=order.indexOf(n); return palette[(i<0?0:i)%palette.length];
+}
+function renderCats(){
+  $('cats').innerHTML = allCats().map(c=>'<button class="cat'+(boardCats.includes(c)?' on':'')+'" data-c="'+c+'">'+c+'</button>').join('');
+  document.querySelectorAll('#cats .cat').forEach(b=>b.addEventListener('click',()=>{
+    const c=b.dataset.c;
+    if(boardCats.includes(c)){boardCats=boardCats.filter(x=>x!==c);}
+    else{if(boardCats.length>=9){toast('最多 9 格，先去掉一个');return;}boardCats.push(c);}
+    st.board.cats=boardCats;save();renderCats();renderBoard();
+  }));
+}
+function setGrid(n){
+  while(boardCats.length>n)boardCats.pop();
+  while(boardCats.length<n){const c=allCats().find(x=>!boardCats.includes(x));boardCats.push(c);}
+  st.board.cats=boardCats;save();renderCats();renderBoard();
+}
+$('b3').addEventListener('click',()=>setGrid(3));
+$('b6').addEventListener('click',()=>setGrid(6));
+$('b9').addEventListener('click',()=>setGrid(9));
+function renderBoard(){
+  const cells=[];
+  for(let i=0;i<boardCats.length;i++){
+    const c=boardCats[i], d=st.board.cells[c];
+    cells.push(d
+      ? '<div class="cell" data-c="'+c+'" style="background:'+catColor(c)+'"><span class="em">'+d.emoji+'</span><span class="cn">'+c+'</span><span class="ws">'+d.wish.replace(/</g,'&lt;')+'</span></div>'
+      : '<div class="cell empty" data-c="'+c+'"><span class="em">＋</span><span class="cn">'+c+'</span><span class="ws">点我开始</span></div>');
+  }
+  $('board').innerHTML = cells.join('');
+  document.querySelectorAll('#board .cell').forEach(el=>el.addEventListener('click',()=>openCell(el.dataset.c)));
+}
+function openCell(c){
+  cellEdit=c; const cd=catDef(c), d=st.board.cells[c];
+  $('mcTitle').textContent='编辑 · '+c;
+  $('mcCat').textContent= d? d.emoji+' '+d.wish : '还没写，写第一条';
+  const ems=cd[1];
+  $('mcEms').innerHTML = ems.map(e=>'<button data-e="'+e+'" class="'+(d&&d.emoji===e?'on':'')+'">'+e+'</button>').join('');
+  $('mcWish').value = d? d.wish : '';
+  $('mcWish').dataset.emoji = d? d.emoji : ems[0];
+  document.querySelectorAll('#mcEms button').forEach(b=>b.addEventListener('click',()=>{
+    $('mcWish').dataset.emoji=b.dataset.e;
+    document.querySelectorAll('#mcEms button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  }));
+  $('mdCell').classList.add('open');
+}
+$('mcSave').addEventListener('click',()=>{
+  const w=$('mcWish').value.trim();
+  if(!w){toast('写一句愿望，哪怕很短');return;}
+  st.board.cells[cellEdit]={emoji:$('mcWish').dataset.emoji,wish:w};save();
+  $('mdCell').classList.remove('open');renderBoard();
+  toast('放进板里了 ✦');
+});
+$('mcInspire').addEventListener('click',()=>{
+  const arr=catDef(cellEdit)[2]; const pick=arr[Math.floor(Math.random()*arr.length)];
+  $('mcWish').value=pick; $('mcWish').dataset.emoji=catDef(cellEdit)[1][0];
+  document.querySelectorAll('#mcEms button').forEach(b=>b.classList.toggle('on',b.dataset.e===$('mcWish').dataset.emoji));
+});
+$('mcClear').addEventListener('click',()=>{delete st.board.cells[cellEdit];save();$('mdCell').classList.remove('open');renderBoard();});
+$('mdCell').addEventListener('click',e=>{if(e.target===$('mdCell'))$('mdCell').classList.remove('open');});
+function boardFilled(){return boardCats.length>0 && boardCats.every(c=>st.board.cells[c]);}
+$('btnExport').addEventListener('click',()=>{
+  if(!boardFilled()){toast('先给每个格子写上愿望');return;}
+  const W=1080,H=1440,c=document.createElement('canvas');c.width=W;c.height=H;
+  const x=c.getContext('2d');
+  const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#8E1B2C');g.addColorStop(.35,'#5E0F1B');g.addColorStop(1,'#2B060C');
+  x.fillStyle=g;x.fillRect(0,0,W,H);
+  x.strokeStyle='rgba(239,200,120,.5)';x.lineWidth=3;x.strokeRect(36,36,W-72,H-72);
+  x.fillStyle='#FF5A45';roundRect(x,60,70,300,64,14);x.fill();
+  x.fillStyle='#fff';x.font='900 30px -apple-system,PingFang SC,sans-serif';x.textAlign='left';x.fillText('趁早 PARTY 2026 ✦',84,112);
+  x.fillStyle='#EFC878';x.font='900 92px -apple-system,PingFang SC,sans-serif';x.textAlign='center';
+  x.fillText('心想事成',W/2,230);
+  x.font='italic 30px Georgia,serif';x.fillText('VISION BOARD · '+(st.name||'ME'),W/2,286);
+  x.fillStyle='rgba(251,245,232,.85)';x.font='24px -apple-system,PingFang SC,sans-serif';
+  x.fillText((st.name||'我')+' 的 2027 · 12.12 保利大剧院',W/2,330);
+  const bw=W-160, bh=920, bx=80, by=390;
+  x.fillStyle='#F1E7D2';roundRect(x,bx,by,bw,bh,28);x.fill();
+  const cols=3, rows=Math.ceil(boardCats.length/3);
+  const gap=20, cw=(bw-56-gap*(cols-1))/cols, ch=Math.min((bh-56-gap*(rows-1))/rows, cw*1.4);
+  const oy=by+28+Math.max(0,(bh-56-gap*(rows-1)-ch*rows)/2);
+  boardCats.forEach((cn,i)=>{
+    const cx=bx+28+(i%cols)*(cw+gap), cy=oy+Math.floor(i/cols)*(ch+gap);
+    const d=st.board.cells[cn];
+    x.fillStyle=catColor(cn);roundRect(x,cx,cy,cw,ch,18);x.fill();
+    x.textAlign='center';x.fillStyle='#fff';
+    x.font='84px serif';x.fillText(d.emoji,cx+cw/2,cy+ch*.36);
+    x.font='800 26px -apple-system,PingFang SC,sans-serif';x.globalAlpha=.92;x.fillText(cn,cx+cw/2,cy+ch*.58);
+    x.globalAlpha=1;x.font='500 25px -apple-system,PingFang SC,sans-serif';
+    wrapText(x,d.wish,cx+cw/2,cy+ch*.70,cw-40,34,3);
+  });
+  x.fillStyle='rgba(239,200,120,.9)';x.font='italic 26px Georgia,serif';x.textAlign='center';
+  x.fillText('SHAPE YOUR LIFE ✦ 趁早 PARTY 2026',W/2,H-78);
+  const a=document.createElement('a');a.download='愿景板-'+(st.name||'me')+'.png';a.href=c.toDataURL('image/png');a.click();
+  stamp('vision','愿景板完成 · 已存进相册');
+});
+function roundRect(x,a,b,w,h,r){x.beginPath();x.moveTo(a+r,b);x.arcTo(a+w,b,a+w,b+h,r);x.arcTo(a+w,b+h,a,b+h,r);x.arcTo(a,b+h,a,b,r);x.arcTo(a,b,a+w,b,r);x.closePath();}
+function wrapText(x,t,cx,y,mw,lh,max){
+  let line='',yy=y;
+  for(const ch of t){
+    if(x.measureText(line+ch).width>mw){x.fillText(line,cx,yy);yy+=lh;line=ch;if(--max<=0){line='…';break;}}
+    else line+=ch;
+  }
+  if(line)x.fillText(line,cx,yy);
+}
+
+$('btnWrite').addEventListener('click',()=>{
+  const v=$('taWrite').value.trim();
+  if(!v){toast('写点什么，哪怕一句话');return;}
+  st.write=v;save();stamp('write','写下来了 · 收进 2027');
+});
+let qIdx = Math.floor(Math.random()*QA.length);
+function renderQ(){
+  $('qNo').textContent='QUESTION '+String(qIdx+1).padStart(2,'0');
+  $('qText').textContent=QA[qIdx];
+  $('taQ').value=st.answers[qIdx]||'';
+}
+$('btnNextQ').addEventListener('click',()=>{qIdx=(qIdx+1)%QA.length;renderQ();});
+$('btnSaveQ').addEventListener('click',()=>{
+  const v=$('taQ').value.trim();
+  if(!v){toast('先写下你的答案');return;}
+  st.answers[qIdx]=v;save();stamp('qa','人生应用题 · 作答完成');
+  toast('保存了。答案在你自己身上');
+});
+$('btnAsk').addEventListener('click',()=>{
+  const v=$('taAsk').value.trim();
+  if(!v){toast('写下你想问的问题');return;}
+  st.asks.unshift(v);save();$('taAsk').value='';
+  renderAsk();toast('已投递给主持人 —— 对谈环节见');
+});
+function renderAsk(){
+  $('askList').innerHTML = st.asks.map((q,i)=>'<div class="w-item"><b>Q'+(st.asks.length-i)+'.</b> '+q.replace(/</g,'&lt;')+'</div>').join('');
+}
+$('btnMic').addEventListener('click',()=>{
+  const v=$('taMic').value.trim();
+  if(!v){toast('追光已经打下来了，说一句');return;}
+  st.mics.unshift({n:st.name||'趁早星人',t:v});save();$('taMic').value='';
+  renderMic();stamp('mic','开放麦 · 金句上墙');
+});
+function renderMic(){
+  $('micWall').innerHTML = st.mics.map(m=>'<div class="w-item"><b>🎤 '+m.n.replace(/</g,'&lt;')+'</b>：'+m.t.replace(/</g,'&lt;')+'</div>').join('');
+}
+$('btnCount').addEventListener('click',()=>{
+  const ov=$('countOv'),n=$('cNum'),msg=$('cMsg');
+  ov.classList.add('open'); let k=3;
+  msg.textContent='新阶段即将开始';
+  n.textContent=k;
+  const t=setInterval(()=>{
+    k--;
+    if(k>0){n.textContent=k;}
+    else{
+      clearInterval(t);n.textContent='✦';msg.textContent='新阶段，正式开始';
+      confetti(ov);
+      if(!has('stage'))stamp('stage','新阶段倒计时 · 仪式完成');
+      st.stageDate=new Date().toLocaleDateString('zh-CN',{year:'numeric',month:'long',day:'numeric'});
+      save();
+      setTimeout(()=>{
+        ov.classList.remove('open');
+        $('stageDone').style.display='block';
+        $('stageDate').textContent='自 '+st.stageDate+' 起 —— 愿望照进现实';
+      },2600);
+    }
+  },1000);
+});
+function confetti(ov){
+  const colors=['#EFC878','#FF5A45','#FBF5E8','#D4632A','#7FA8C9'];
+  for(let i=0;i<40;i++){
+    const s=document.createElement('i');s.className='confetti';
+    s.style.left=Math.random()*100+'%';
+    s.style.background=colors[i%colors.length];
+    s.style.animationDuration=(2.2+Math.random()*1.6)+'s';
+    s.style.animationDelay=(Math.random()*.5)+'s';
+    s.style.transform='rotate('+Math.random()*360+'deg)';
+    ov.appendChild(s);
+    setTimeout(()=>s.remove(),4600);
+  }
+}
+function renderPass(){
+  const signed=!!st.name;
+  $('signArea').style.display=signed?'none':'block';
+  $('passArea').style.display=signed?'block':'none';
+  if(!signed)return;
+  $('ppName').textContent=st.name;
+  $('ppSeat').textContent='参会人 · 座位 '+st.seat;
+  $('stampWall').innerHTML = STAMPS.map(s=>
+    '<div class="stamp2'+(has(s[0])?' on':'')+'"><span class="ic">'+s[2]+'</span>'+s[1]+'</div>'
+  ).join('');
+  $('gifts').innerHTML = GIFTS.map(g=>
+    '<div class="tl-item" style="margin-bottom:10px"><div class="time">GIFT · '+g[0]+'</div><div class="ds" style="margin-top:4px;font-size:13.5px;color:rgba(251,245,232,.85)">'+g[1]+'</div></div>'
+  ).join('');
+  if(st.write)$('taWrite').value=st.write;
+  if(st.stageDate){$('stageDone').style.display='block';$('stageDate').textContent='自 '+st.stageDate+' 起 —— 愿望照进现实';}
+  renderAsk();renderMic();
+}
+$('btnMem').addEventListener('click',()=>{
+  const W=1080,H=1440,c=document.createElement('canvas');c.width=W;c.height=H;
+  const x=c.getContext('2d');
+  const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#8E1B2C');g.addColorStop(.4,'#5E0F1B');g.addColorStop(1,'#2B060C');
+  x.fillStyle=g;x.fillRect(0,0,W,H);
+  x.strokeStyle='rgba(239,200,120,.6)';x.lineWidth=4;x.strokeRect(40,40,W-80,H-80);
+  x.strokeStyle='rgba(239,200,120,.3)';x.lineWidth=1.5;x.strokeRect(56,56,W-112,H-112);
+  x.fillStyle='#FF5A45';roundRect(x,70,90,320,66,14);x.fill();
+  x.fillStyle='#fff';x.font='900 30px -apple-system,PingFang SC,sans-serif';x.textAlign='left';
+  x.fillText('趁早 PARTY 2026 ✦',96,133);
+  x.textAlign='center';
+  x.fillStyle='#EFC878';x.font='900 84px -apple-system,PingFang SC,sans-serif';
+  x.fillText('参会纪念',W/2,240);
+  x.fillStyle='#EFC878';x.font='italic 30px Georgia,serif';
+  x.fillText('MEMORIES OF PARTY 2026',W/2,292);
+  x.fillStyle='#FBF5E8';x.font='900 66px -apple-system,PingFang SC,sans-serif';
+  x.fillText(st.name||'趁早星人',W/2,420);
+  x.fillStyle='rgba(251,245,232,.75)';x.font='24px -apple-system,PingFang SC,sans-serif';
+  x.fillText('2026.12.12 · 上海保利大剧院 · 座位 '+(st.seat||'A 区'),W/2,470);
+  STAMPS.forEach((s,i)=>{
+    const cx=W/2+(i-3)*118, cy=600;
+    x.beginPath();x.arc(cx,cy,46,0,7);
+    x.fillStyle=has(s[0])?'rgba(239,200,120,.16)':'rgba(255,255,255,.05)';x.fill();
+    x.strokeStyle=has(s[0])?'#EFC878':'rgba(239,200,120,.3)';x.lineWidth=2;x.stroke();
+    x.font='40px serif';x.fillStyle=has(s[0])?'#EFC878':'rgba(251,245,232,.25)';
+    x.fillText(s[2],cx,cy+14);
+  });
+  x.fillStyle='#EFC878';x.font='900 40px -apple-system,PingFang SC,sans-serif';
+  x.fillText(st.stamps.length+' / 7 枚章',W/2,740);
+  x.fillStyle='rgba(251,245,232,.9)';x.font='28px -apple-system,PingFang SC,sans-serif';
+  const q=(st.write||'愿望不是许给运气的，是写下来、拆开做、按期交的。');
+  wrapText(x,'「'+q+'」',W/2,830,760,46,4);
+  x.fillStyle='rgba(239,200,120,.9)';x.font='italic 26px Georgia,serif';
+  x.fillText('一个人，如何主动创造喜欢的人生',W/2,H-170);
+  x.fillStyle='rgba(251,245,232,.6)';x.font='22px -apple-system,PingFang SC,sans-serif';
+  x.fillText('SHAPE YOUR LIFE · 明年 12.12 见',W/2,H-120);
+  const a=document.createElement('a');a.download='参会纪念-'+(st.name||'me')+'.png';a.href=c.toDataURL('image/png');a.click();
+  toast('纪念卡已保存 ✦');
+});
+renderTl();renderSteps();renderCats();renderBoard();renderQ();renderId();
+if(st.name){$('inName').value=st.name;}
+</script>
+</body>
+</html>
